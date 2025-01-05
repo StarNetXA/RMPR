@@ -52,30 +52,41 @@
 //       archive.finalize();
 
 
-import { readdir, promises } from 'fs';
-import { join, dirname } from 'path';
+// import { readdir, promises } from 'fs';
+// import { join, dirname } from 'path';
 
-const currentDir = 'C:\\PCL2\\mymodpack\\versions\\hsys2.0';
+// const currentDir = 'C:\\PCL2\\mymodpack\\versions\\hsys2.0';
 
-readdir(currentDir, (err, items) => {
-  if (err) {
-    return console.error('读取目录时出错:', err);
+// readdir(currentDir, (err, items) => {
+//   if (err) {
+//     return console.error('读取目录时出错:', err);
+//   }
+
+//   const folderPromises = items.map(item => {
+//     const fullPath = join(currentDir, item);
+//     return promises.stat(fullPath).then(stats => {
+//       if (stats.isDirectory() && dirname(fullPath) === currentDir) {
+//         return item;
+//       }
+//       return null;
+//     });
+//   });
+
+//   Promise.all(folderPromises).then(folders => {
+//     const filteredFolders = folders.filter(folder => folder !== null);
+//     console.log('当前目录下的文件夹:', filteredFolders);
+//   }).catch(err => {
+//     console.error('获取状态时出错:', err);
+//   });
+// });
+
+
+import fs from 'fs'
+import path from 'path'
+const pathx = "C:\\PCL2\\mymodpack\\versions\\hsys2.0\\mods"
+for(let a=0;a<fs.readdirSync(pathx).length;a++){
+  if (fs.statSync(`${pathx}\\${fs.readdirSync(pathx)[a]}`).isFile()){
+    console.log(fs.readdirSync(pathx)[a])
   }
-
-  const folderPromises = items.map(item => {
-    const fullPath = join(currentDir, item);
-    return promises.stat(fullPath).then(stats => {
-      if (stats.isDirectory() && dirname(fullPath) === currentDir) {
-        return item;
-      }
-      return null;
-    });
-  });
-
-  Promise.all(folderPromises).then(folders => {
-    const filteredFolders = folders.filter(folder => folder !== null);
-    console.log('当前目录下的文件夹:', filteredFolders);
-  }).catch(err => {
-    console.error('获取状态时出错:', err);
-  });
-});
+}
+//console.log(fs.readdirSync(path.join("C:\\PCL2\\mymodpack\\versions\\hsys2.0\\kubejs")))

@@ -13,13 +13,24 @@ const got = gotx.extend({
 //console.log((await got.get('https://api.modrinth.com/v2/version_file/80520a596f3d2e7dc744591dae257dc87aaa204e')).body)
 
 export async function modrinth(sf, pathx) {
+ ////HASH GET
+ for(let a=0;a<fs.readdirSync(`${pathx}\\mods`).length;a++){ //本地计算sha1
+  if (fs.statSync(`${`${pathx}\\mods`}\\${fs.readdirSync(`${pathx}\\mods`)[a]}`).isFile()){
+  let fvv = fs.readdirSync(`${pathx}\\mods`)[a]
+   const hash = crypto.createHash("sha1").update(fs.readFileSync(`${pathx}\\mods\\${fvv}`)).digest("hex");
+   try {
+   const res = await got.get(`https://api.modrinth.com/v2/version_file/${hash}`); //向ModrinthAPI提交sha1获取mod信息
+   console.log(res.body)
+  }catch(e){}
+  }
+}
   /*for (let i = 0; i < sf.length; i++) { //通过SHA1获取下载链接、文件大小、项目ID
     //console.log(fs.readdirSync(sf[i]))
-    const hash = crypto.createHash("sha1").update(sf[i]).digest("hex");
-    await got.get(`https://api.modrinth.com/v2/version_file/${hash}`);
+    
+   
     console.log(`哈希结果: ${hash}`);
   }*/
-  console.log(sf);
+ ////压缩到mrpack
   const zipfile = fs.createWriteStream("1.zip");
   const archive = archiver("zip", {
     zlib: { level: 0 },
@@ -28,7 +39,6 @@ export async function modrinth(sf, pathx) {
     console.log(archive.pointer() + " total bytes");
   });
   archive.pipe(zipfile);
-
   for (let i = 0; i < sf.length; i++) {
     //console.log(path.basename(sf[i]))
     //archive.finalize(sf[i], { name: path.basename(sf[i]) });
