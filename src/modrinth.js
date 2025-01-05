@@ -32,18 +32,15 @@ export async function modrinth(sf, pathx) {
   for (let i = 0; i < sf.length; i++) {
     //console.log(path.basename(sf[i]))
     //archive.finalize(sf[i], { name: path.basename(sf[i]) });
-    if (fs.statSync(sf[i]).isDirectory()) {
-      //文件夹
-      archive.directory(sf[i], `overrides/${path.basename(sf[i])}`);
-    } else {
+    if(fs.statSync(sf[i]).isFile()) {
       //文件
       archive.append(fs.createReadStream(sf[i]), {
-        name: path.basename(sf[i]),
+        name: `overrides/${path.basename(sf[i])}`,
       });
+    }else if (fs.statSync(sf[i]).isDirectory()) {
+      //文件夹
+      archive.directory(sf[i], `overrides/${path.basename(sf[i])}`);
     }
-  }
-  for (let i = 0; i < sf.length; i++) {
-    archive.directory(sf[i], `overrides/${path.basename(sf[i])}`);
   }
   await archive.finalize();
 }
