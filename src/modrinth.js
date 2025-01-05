@@ -20,7 +20,14 @@ export async function modrinth(sf, pathx) {
    const hash = crypto.createHash("sha1").update(fs.readFileSync(`${pathx}\\mods\\${fvv}`)).digest("hex");
    try {
    const res = await got.get(`https://api.modrinth.com/v2/version_file/${hash}`); //向ModrinthAPI提交sha1获取mod信息
-   console.log(res.body)
+   const jtmp = JSON.parse(res.body)
+   const sha512 = jtmp.files.hashes.sha512
+   const sha1 = hash
+   const size = jtmp.files.size
+   const downloadurl = jtmp.files.url
+   const res2 = await got.get(`https://api.modrinth.com/v2/project/${jtmp.project_id}`)
+   const env_client = JSON.parse(res.body).client_side
+   const env_server = JSON.parse(res.body).server_side
   }catch(e){}
   }
 }
