@@ -1,0 +1,29 @@
+{
+  "name": "rangemodpack",
+  "version": "1.0.0",
+  "description": "starnx",
+  "main": "main.js",
+  "bin": "main.js",
+  "type": "module",
+  "pkg": {
+    "scripts": "index.js",
+    "assets": [
+      "assets//*"
+    ],
+    "targets": [
+      "node18-win-x64"
+    ]
+  },
+  "scripts": {
+    "test": "node main.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "archiver": "^7.0.1",
+    "cli-cursor": "^5.0.0",
+    "enquirer": "^2.4.1",
+    "got": "^14.4.5",
+    "inquirer": "^12.3.0"
+  }
+}
