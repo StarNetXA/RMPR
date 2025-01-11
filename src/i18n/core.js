@@ -1,6 +1,5 @@
 import fs from 'fs'
 const systemLanguage = Intl.DateTimeFormat().resolvedOptions().locale;
-//const systemLanguage = "en-US"
 const path = "./src/i18n/assets/"
 
 export function i18ns(){
