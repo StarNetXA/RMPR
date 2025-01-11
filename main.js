@@ -27,6 +27,12 @@ await prompt([
     loop: false,
   },
   {
+    type: "input",
+    name: "mpdes",
+    message: "请输入整合包的介绍:",
+    loop: false,
+  },
+  {
     type: "list",
     name: "modloader",
     message: "请选择整合包的模组加载器:",
@@ -68,8 +74,6 @@ await prompt([
 });
 
 async function makemodpack(type, version, modloader, modloaderver, mpversion, selectedFile, filepath) {
-  console.log(filepath)
-  console.log(selectedFile)
 switch(type){
     case 'Curseforge':
 
