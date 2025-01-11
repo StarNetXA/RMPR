@@ -8,5 +8,6 @@
     "qs_modloaderver": "統合パックのモッドローダーのバージョンを選択してください：",
     "qs_filepath": "Minecraftゲームバージョンのパスを入力してください：",
     "qs_selectedFile": "ファイルを選択してください：",
-    "unsupported_MCBBS": "MCBBS統合パックタイプは現在サポートされていません！"
+    "unsupported_MCBBS": "MCBBS統合パックタイプは現在サポートされていません！",
+    "unsupported_CURSEFORGE": "Curseforge統合パックタイプは現在サポートされていません！"
 }

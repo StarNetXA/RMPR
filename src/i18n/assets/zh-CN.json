@@ -8,5 +8,6 @@
     "qs_modloaderver":"请选择整合包的模组加载器的版本：",
     "qs_filepath":"请输入Minecraft游戏版本所在路径：",
     "qs_selectedFile":"请选择一个文件：",
-    "unsupported_MCBBS":"暂不支持MCBBS整合包类型！"
+    "unsupported_MCBBS":"暂不支持MCBBS整合包类型！",
+    "unsupported_CURSEFORGE":"暂不支持Curseforge整合包类型！"
 }

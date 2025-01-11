@@ -77,7 +77,7 @@ await prompt([
 async function makemodpack(type, version, modloader, modloaderver, mpversion, selectedFile, filepath,mpname,mpdes) {
 switch(type){
     case 'Curseforge':
-
+      console.log(`\x1B[31m${i18n.unsupported_CURSEFORGE}\x1B[0m`)
     break;
     case 'Modrinth':
    await modrinth(version,modloader,modloaderver,mpversion,selectedFile,filepath,mpname,mpdes)
