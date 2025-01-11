@@ -21,18 +21,16 @@ export async function modrinth(sf, pathx) {
    try {
    const res = await got.get(`https://api.modrinth.com/v2/version_file/${hash}`); //向ModrinthAPI提交sha1获取mod信息
    const jtmp = JSON.parse(res.body)
-   console.log(jtmp)
    for(let b=0;b<jtmp.files.length;b++){
     const e = jtmp.files[b]
     const sha512 = e.hashes.sha512
     const sha1 = hash
     const downloadurl = e.url
     const size = e.size
-    const res2 = await got.get(`https://api.modrinth.com/v2/project/${jtmp.project_id}`)
-    const env_client = JSON.parse(res.body).client_side
-    const env_server = JSON.parse(res.body).server_side
+    let json = {"path":`${`${pathx}\\mods`}\\${fs.readdirSync(`${pathx}\\mods`)[a]}`,"hashes":{"sha512":sha512,"sha1":sha1,},"env":{"client":"required","server":"required"},"downloads":[downloadurl],"fileSize":size}
    }
-  }catch(e){console.log(e)}
+  }catch(e){//console.log(e)
+    }
   }
 }
   /*for (let i = 0; i < sf.length; i++) { //通过SHA1获取下载链接、文件大小、项目ID
