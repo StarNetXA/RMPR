@@ -5,7 +5,7 @@
 - PCL、HMCL、FCL均不支持Curseforge和Modrinth还有MCBBS的快捷导出（HMCL支持MCBBS的导出）
 - 整合包作者深受不停切换启动器的痛苦（为了导出一个整合包要下载许多的启动器）
 ### 为什么程序的体积这么大？
-- RMPR使用JavaScript+Node.js+PKG的方式进行开发，Node.js是一款解释性语言，如电脑不安装Node.js将无法运行，为了照顾大多数人，我们把使用PKG打包（PKG打包把Node.js嵌入了程序中）
+- RMPR使用JavaScript+Node.js+PKG的方式进行开发，Node.js是一款解释性语言，如电脑不安装Node.js将无法运行，为了照顾大多数人，我们将使用PKG打包（PKG打包把Node.js嵌入了程序中）
 
 > [!IMPORTANT]
 > **免责声明:本项目仅做学习使用, 因本项目导致的任何法律或版权纠纷等问题项目团队组不承担任何责任！**

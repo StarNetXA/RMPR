@@ -33,6 +33,13 @@ await prompt([
     loop: false,
   },
   {
+    type: "input",
+    name: "mpversion",
+    message: "请输入整合包版本:",
+    pageSize: 4,
+    loop: false,
+  },
+  {
     type: "list",
     name: "modloader",
     message: "请选择整合包的模组加载器:",
@@ -44,13 +51,6 @@ await prompt([
     type: "input",
     name: "modloaderver",
     message: "请选择整合包的模组加载器的版本:",
-    loop: false,
-  },
-  {
-    type: "input",
-    name: "mpversion",
-    message: "请输入整合包版本:",
-    pageSize: 4,
     loop: false,
   },
   {
@@ -70,17 +70,16 @@ await prompt([
   },
 ]).then(async (answers)=>{
     //console.log(`你选择了: ${answers.selectedFile}`);
-    await makemodpack(answers.type,answers.version,answers.modloader,answers.modloaderver,answers.mpversion,answers.selectedFile,answers.filepath)
+    await makemodpack(answers.type,answers.version,answers.modloader,answers.modloaderver,answers.mpversion,answers.selectedFile,answers.filepath,answers.mpname,answers.mpdes)
 });
 
-async function makemodpack(type, version, modloader, modloaderver, mpversion, selectedFile, filepath) {
+async function makemodpack(type, version, modloader, modloaderver, mpversion, selectedFile, filepath,mpname,mpdes) {
 switch(type){
     case 'Curseforge':
 
     break;
-
     case 'Modrinth':
-   await modrinth(selectedFile,filepath)
+   await modrinth(version,modloader,modloaderver,mpversion,selectedFile,filepath,mpname,mpdes)
     break;
 
     case 'MCBBS':
