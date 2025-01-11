@@ -1,0 +1,12 @@
+{
+    "qs_type": "パッケージングの種類を選択してください：",
+    "qs_version": "Minecraftのバージョンを入力してください：",
+    "qs_mpname": "統合パック名を入力してください：",
+    "qs_mpdes": "統合パックの説明を入力してください：",
+    "qs_mpversion": "統合パックのバージョンを入力してください：",
+    "qs_modloader": "統合パックのモッドローダーを選択してください：",
+    "qs_modloaderver": "統合パックのモッドローダーのバージョンを選択してください：",
+    "qs_filepath": "Minecraftゲームバージョンのパスを入力してください：",
+    "qs_selectedFile": "ファイルを選択してください：",
+    "unsupported_MCBBS": "MCBBS統合パックタイプは現在サポートされていません！"
+}

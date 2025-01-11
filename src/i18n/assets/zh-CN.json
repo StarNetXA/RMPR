@@ -1,0 +1,12 @@
+{
+    "qs_type":"请选择打包类型：",
+    "qs_version":"请输入Minecraft版本：",
+    "qs_mpname":"请输入整合包名称：",
+    "qs_mpdes":"请输入整合包的介绍：",
+    "qs_mpversion":"请输入整合包版本：",
+    "qs_modloader":"请选择整合包的模组加载器：",
+    "qs_modloaderver":"请选择整合包的模组加载器的版本：",
+    "qs_filepath":"请输入Minecraft游戏版本所在路径：",
+    "qs_selectedFile":"请选择一个文件：",
+    "unsupported_MCBBS":"暂不支持MCBBS整合包类型！"
+}

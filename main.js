@@ -2,14 +2,15 @@ import inquirer from "inquirer";
 import fs from "fs";
 import path from "path";
 import { modrinth } from "./src/modrinth.js";
+import { i18ns } from "./src/i18n/core.js";
+const i18n = i18ns()
 
 const prompt = inquirer.createPromptModule();
-
 await prompt([
   {
     type: "list",
     name: "type",
-    message: "请选择打包类型:",
+    message: i18n.qs_type,
     choices: ["Curseforge", "Modrinth", "MCBBS"],
     pageSize: 4,
     loop: false,
@@ -17,32 +18,32 @@ await prompt([
   {
     type: "input",
     name: "version",
-    message: "请输入Minecraft版本:",
+    message: i18n.qs_version,
     loop: false,
   },
   {
     type: "input",
     name: "mpname",
-    message: "请输入整合包名称:",
+    message: i18n.qs_mpname,
     loop: false,
   },
   {
     type: "input",
     name: "mpdes",
-    message: "请输入整合包的介绍:",
+    message: i18n.qs_mpdes,
     loop: false,
   },
   {
     type: "input",
     name: "mpversion",
-    message: "请输入整合包版本:",
+    message: i18n.qs_mpversion,
     pageSize: 4,
     loop: false,
   },
   {
     type: "list",
     name: "modloader",
-    message: "请选择整合包的模组加载器:",
+    message: i18n.qs_modloader,
     choices: ["Forge", "Neoforge", "Fabric"],
     pageSize: 4,
     loop: false,
@@ -50,20 +51,20 @@ await prompt([
   {
     type: "input",
     name: "modloaderver",
-    message: "请选择整合包的模组加载器的版本:",
+    message: i18n.qs_modloaderver,
     loop: false,
   },
   {
     type: "input",
     name: "filepath",
-    message: "请输入Minecraft游戏版本所在路径:",
+    message: i18n.qs_filepath,
     pageSize: 4,
     loop: false,
   },
   {
     type: "checkbox",
     name: "selectedFile",
-    message: "请选择一个文件:",
+    message: i18n.qs_selectedFile,
     pageSize: 20,
     loop: false,
     choices: (answers) =>{return generateMultiSelectList(readRootDirSync(answers.filepath))},
@@ -83,7 +84,7 @@ switch(type){
     break;
 
     case 'MCBBS':
-        console.log('\x1B[31m暂不支持MCBBS整合包类型！\x1B[0m')
+        console.log(`\x1B[31m${i18n.unsupported_MCBBS}\x1B[0m`)
     break;
 }
 

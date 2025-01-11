@@ -1,0 +1,12 @@
+{
+    "qs_type": "Please select the packaging type:",
+    "qs_version": "Please enter the Minecraft version:",
+    "qs_mpname": "Please enter the name of the modpack:",
+    "qs_mpdes": "Please enter the description of the modpack:",
+    "qs_mpversion": "Please enter the version of the modpack:",
+    "qs_modloader": "Please select the mod loader for the modpack:",
+    "qs_modloaderver": "Please select the version of the modloader:",
+    "qs_filepath": "Please enter the path to the Minecraft game version:",
+    "qs_selectedFile": "Please select a file:",
+    "unsupported_MCBBS": "MCBBS modpack type is not supported yet!"
+}
