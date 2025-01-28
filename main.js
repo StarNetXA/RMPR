@@ -2,6 +2,7 @@ import inquirer from "inquirer";
 import fs from "fs";
 import path from "path";
 import { modrinth } from "./src/modrinth.js";
+import { curseforge } from "./src/curseforge.js"
 import { i18ns } from "./src/i18n/core.js";
 const i18n = i18ns()
 
@@ -77,7 +78,7 @@ await prompt([
 async function makemodpack(type, version, modloader, modloaderver, mpversion, selectedFile, filepath,mpname,mpdes) {
 switch(type){
     case 'Curseforge':
-      console.log(`\x1B[31m${i18n.unsupported_CURSEFORGE}\x1B[0m`)
+      await curseforge(version,modloader,modloaderver,mpversion,selectedFile,filepath,mpname,mpdes)
     break;
     case 'Modrinth':
    await modrinth(version,modloader,modloaderver,mpversion,selectedFile,filepath,mpname,mpdes)

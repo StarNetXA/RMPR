@@ -5,17 +5,9 @@
   "main": "main.js",
   "bin": "main.js",
   "type": "module",
-  "pkg": {
-    "scripts": "index.js",
-    "assets": [
-      "assets//*"
-    ],
-    "targets": [
-      "node18-win-x64"
-    ]
-  },
   "scripts": {
-    "test": "node main.js"
+    "test": "node main.js",
+    "build": "nexe -t x86-22.13.0"
   },
   "author": "",
   "license": "ISC",
