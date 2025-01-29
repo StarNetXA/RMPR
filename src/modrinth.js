@@ -10,8 +10,6 @@ const got = gotx.extend({
   },
 });
 
-//console.log((await got.get('https://api.modrinth.com/v2/version_file/80520a596f3d2e7dc744591dae257dc87aaa204e')).body)
-
 export async function modrinth(
   mcv,
   modloader,
@@ -100,8 +98,6 @@ export async function modrinth(
   });
   archive.pipe(zipfile);
   for (let i = 0; i < sf.length; i++) {
-    //console.log(path.basename(sf[i]))
-    //archive.finalize(sf[i], { name: path.basename(sf[i]) });
     if (fs.statSync(sf[i]).isFile()) {
       //文件
       archive.append(fs.createReadStream(sf[i]), {
@@ -117,4 +113,3 @@ export async function modrinth(
   });
   await archive.finalize();
 }
-//modrinth(['C:\\PCL2\\mymodpack\\versions\\hsys2.0\\config','C:\\PCL2\\mymodpack\\versions\\hsys2.0\\kubejs'],"C:\PCL2\mymodpack\versions\hsys2.0\kubejs")

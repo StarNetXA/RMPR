@@ -16,6 +16,7 @@
     "cli-cursor": "^5.0.0",
     "enquirer": "^2.4.1",
     "got": "^14.4.5",
-    "inquirer": "^12.3.0"
+    "inquirer": "^12.3.0",
+    "murmurhash": "^2.0.1"
   }
 }

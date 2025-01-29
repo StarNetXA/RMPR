@@ -71,7 +71,6 @@ await prompt([
     choices: (answers) =>{return generateMultiSelectList(readRootDirSync(answers.filepath))},
   },
 ]).then(async (answers)=>{
-    //console.log(`你选择了: ${answers.selectedFile}`);
     await makemodpack(answers.type,answers.version,answers.modloader,answers.modloaderver,answers.mpversion,answers.selectedFile,answers.filepath,answers.mpname,answers.mpdes)
 });
 

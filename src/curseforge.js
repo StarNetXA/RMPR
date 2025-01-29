@@ -1,8 +1,8 @@
-import cf from '@meza/curseforge-fingerprint';
 import archiver from 'archiver';
 import fs from 'fs';
 import got from 'got'
 import path from 'path';
+import { fingerprint } from '../lib/hashlib.js';
 export async function curseforge(
   mcv,
   modloader,
@@ -13,7 +13,6 @@ export async function curseforge(
   mpname,
   mpdes
 ){
-//let pathx = "C:\\PCL2\\mymodpack\\versions\\现代战争2.11.5\\"
 const mload = (() => {
   switch (modloader) {
     case "Forge":
@@ -42,15 +41,13 @@ for (let a = 0; a < fs.readdirSync(`${pathx}\\mods`).length; a++) {
             .isFile()
         ) {
             try{
-            //console.log(`${pathx}\mods\\${fs.readdirSync(`${pathx}\\mods`)[a]}`)
             const test = path.resolve(`${pathx}\mods\\${fs.readdirSync(`${pathx}\\mods`)[a]}`)
       jtmp.push({[a]:test}) //什么鸡巴push json
       fs.copyFileSync(test,`./temp/curseforge/${a}.jar`)
-      tmp.push(cf.fingerprint(path.resolve(`./temp/curseforge/${a}.jar`))) //计算Hash并且push
+      tmp.push(await fingerprint(path.resolve(`./temp/curseforge/${a}.jar`))) //计算Hash并且push
             }catch(e){console.log(e)}
 }
 }
-//console.log(tmp)
  const res = await got.post('https://api.curseforge.com/v1/fingerprints/432',{
      headers :{
  "x-api-key":"$2a$10$ydk0TLDG/Gc6uPMdz7mad.iisj2TaMDytVcIW4gcVP231VKngLBKy",
@@ -60,15 +57,11 @@ for (let a = 0; a < fs.readdirSync(`${pathx}\\mods`).length; a++) {
  }) //获取信息
  const resjson = JSON.parse(res.body)
 const positions = tmp.filter(item => !new Set(resjson.data.exactFingerprints).has(item)).map(item => tmp.indexOf(item));
-//console.log(resjson.data.exactMatches[0].file)
   for(let c=0;c<resjson.data.exactFingerprints.length;c++){
     const result = resjson.data.exactMatches.find(item => item.file.fileFingerprint === resjson.data.exactFingerprints[c]);
-
-    //console.log(result.file.id)
     rtmp.push({"projectID": result.file.modId,"fileID": result.file.id,"required": true})
   }
   console.log(rtmp)
- // console.log(resjson.data.exactMatches[0].file.fileFingerprint)
 const latestjson = JSON.stringify({"minecraft": {"version": mcv,"modLoaders": [{"id": `${mload}-${mlver}`,"primary": true}]},"manifestType": "minecraftModpack","manifestVersion": 1,"name": mpname,"version": mpver,"author": mpdes,"files": rtmp, "overrides": "overrides"})
 archive.append(latestjson, {
   name: `manifest.json`,
