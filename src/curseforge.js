@@ -41,7 +41,7 @@ for (let a = 0; a < fs.readdirSync(`${pathx}\\mods`).length; a++) {
             .isFile()
         ) {
             try{
-            const test = path.resolve(`${pathx}\mods\\${fs.readdirSync(`${pathx}\\mods`)[a]}`)
+            const test = path.resolve(`${pathx}\\mods\\${fs.readdirSync(`${pathx}\\mods`)[a]}`)
       jtmp.push({[a]:test}) //什么鸡巴push json
       fs.copyFileSync(test,`./temp/curseforge/${a}.jar`)
       tmp.push(await fingerprint(path.resolve(`./temp/curseforge/${a}.jar`))) //计算Hash并且push

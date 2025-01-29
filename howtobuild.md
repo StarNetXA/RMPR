@@ -7,6 +7,6 @@
 
 ### 如何构建
 * 1.安装Node.js+NASM+Visual Studio 2022+Python
-* 2.使用git clone https://github.com/StarNet-X/RMPR
+* 2.使用git clone https://github.com/StarNetXA/RMPR
 * 3.使用Visual Studio Installer安装C++桌面环境(SDK+Cmake)
 * 4.使用npm run build
