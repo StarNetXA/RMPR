@@ -3,10 +3,11 @@ import path from "path";
 import gotx from "got";
 import crypto from "node:crypto";
 import archiver from "archiver";
+import { config } from "./config/core.js";
 const got = gotx.extend({
   headers: {
-    "user-agent":
-      "RMPR/1.0.0 Mozilla/5.0 AppleWebKit/537.36 Chrome/63.0.3239.132 Safari/537.36",
+    "User-Agent":
+      `RMPR/${config.version} Mozilla/5.0 AppleWebKit/537.36 Chrome/63.0.3239.132 Safari/537.36`,
   },
 });
 

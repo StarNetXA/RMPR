@@ -3,6 +3,7 @@ import fs from 'fs';
 import got from 'got'
 import path from 'path';
 import { fingerprint } from '../lib/hashlib.js';
+import { config } from './config/core.js';
 export async function curseforge(
   mcv,
   modloader,
@@ -51,7 +52,7 @@ for (let a = 0; a < fs.readdirSync(`${pathx}\\mods`).length; a++) {
  const res = await got.post('https://api.curseforge.com/v1/fingerprints/432',{
      headers :{
  "x-api-key":"$2a$10$ydk0TLDG/Gc6uPMdz7mad.iisj2TaMDytVcIW4gcVP231VKngLBKy",
- "User-Agent":"RMPR/1.0.0 Mozilla/5.0 AppleWebKit/537.36 Chrome/63.0.3239.132 Safari/537.36",
+ "User-Agent":`RMPR/${config.version} Mozilla/5.0 AppleWebKit/537.36 Chrome/63.0.3239.132 Safari/537.36`,
      },
      json:{"fingerprints": tmp}
  }) //获取信息
