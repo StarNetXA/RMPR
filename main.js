@@ -4,8 +4,9 @@ import path from "path";
 import { modrinth } from "./src/modrinth.js";
 import { curseforge } from "./src/curseforge.js"
 import { i18ns } from "./src/i18n/core.js";
+import { checkupdate } from "./src/autoupdate/core.js";
 const i18n = i18ns()
-
+await checkupdate()
 const prompt = inquirer.createPromptModule();
 await prompt([
   {

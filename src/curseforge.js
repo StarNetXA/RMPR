@@ -61,7 +61,6 @@ const positions = tmp.filter(item => !new Set(resjson.data.exactFingerprints).ha
     const result = resjson.data.exactMatches.find(item => item.file.fileFingerprint === resjson.data.exactFingerprints[c]);
     rtmp.push({"projectID": result.file.modId,"fileID": result.file.id,"required": true})
   }
-  console.log(rtmp)
 const latestjson = JSON.stringify({"minecraft": {"version": mcv,"modLoaders": [{"id": `${mload}-${mlver}`,"primary": true}]},"manifestType": "minecraftModpack","manifestVersion": 1,"name": mpname,"version": mpver,"author": mpdes,"files": rtmp, "overrides": "overrides"})
 archive.append(latestjson, {
   name: `manifest.json`,

@@ -9,5 +9,6 @@
     "qs_filepath": "Please enter the path to the Minecraft game version:",
     "qs_selectedFile": "Please select a file:",
     "unsupported_MCBBS": "MCBBS modpack type is not supported yet!",
-    "unsupported_CURSEFORGE": "Curseforge modpack type is not supported yet!"
+    "unsupported_CURSEFORGE": "Curseforge modpack type is not supported yet!",
+    "check_update_error":"Check for update errors！"
 }
