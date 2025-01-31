@@ -10,5 +10,6 @@
     "qs_selectedFile": "ファイルを選択してください：",
     "unsupported_MCBBS": "MCBBS統合パックタイプは現在サポートされていません！",
     "unsupported_CURSEFORGE": "Curseforge統合パックタイプは現在サポートされていません！",
-    "check_update_error":"更新エラーのチェック！"
+    "check_update_error":"更新エラーのチェック！",
+     "check_update_tips":"最新バージョンの更新："
 }
